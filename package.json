@@ -67,7 +67,7 @@
     "vite": "^5.2.13",
     "vite-plugin-solid": "^2.10.2",
     "vitest": "^1.6.0",
-    "wrangler": "^3.60.2"
+    "wrangler": "^3.65.1"
   },
   "//dependencies": {
     "@mapbox/polyline": "display series of map coordinates as a line",
