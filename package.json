@@ -13,6 +13,7 @@
     "dev": "vite",
     "serve": "vite prefix",
     "lint": "eslint --cache --cache-location node_modules/.eslintcache",
+    "lint:report": "bun run lint --output-file eslint_report.json --format json",
     "prepare": "husky",
     "pre-commit": "bun lint",
     "test": "vitest run"

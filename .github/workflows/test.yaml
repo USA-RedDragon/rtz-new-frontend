@@ -30,6 +30,35 @@ jobs:
           retention-days: 1
           name: build-artifacts-${{ github.run_id }}
 
+  lint:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2.0.1
+        with:
+          bun-version-file: .bun-version
+
+      - run: bun install --frozen-lockfile
+
+      - name: Lint
+        run: bun run lint:report
+
+      - name: Annotate Code Linting Results
+        if: always()
+        uses: ataylorme/eslint-annotate-action@v2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          report-json: "eslint_report.json"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eslint-report
+          if-no-files-found: error
+          retention-days: 30
+          path: eslint_report.json
+
   test:
     runs-on: ubuntu-22.04
     timeout-minutes: 1
