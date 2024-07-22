@@ -5,6 +5,8 @@ function stringify(obj: Record<string, string>): string {
   return new URLSearchParams(obj).toString()
 }
 
+export const GOOGLE_OAUTH_ENABLED = false
+
 const GOOGLE_OAUTH_PARAMS = {
   type: 'web_server',
   client_id:
@@ -22,20 +24,7 @@ export function getGoogleAuthUrl(): string {
   return 'https://accounts.google.com/o/oauth2/auth?' + stringify(params)
 }
 
-const APPLE_OAUTH_PARAMS = {
-  client_id: 'ai.comma.login',
-  redirect_uri: `${BASE_URL}/v2/auth/a/redirect/`,
-  response_type: 'code',
-  response_mode: 'form_post',
-  scope: 'name email',
-}
-export function getAppleAuthUrl(): string {
-  const params = {
-    ...APPLE_OAUTH_PARAMS,
-    state: 'service,' + getService(),
-  }
-  return 'https://appleid.apple.com/auth/authorize?' + stringify(params)
-}
+export const GITHUB_OAUTH_ENABLED = false
 
 const GITHUB_OAUTH_PARAMS = {
   client_id: '28c4ecb54bb7272cb5a4',
@@ -48,4 +37,22 @@ export function getGitHubAuthUrl(): string {
     state: 'service,' + getService(),
   }
   return 'https://github.com/login/oauth/authorize?' + stringify(params)
+}
+
+export const CUSTOM_OAUTH_ENABLED = true
+export const CUSTOM_OAUTH_NAME= 'Authentik'
+
+const CUSTOM_OAUTH_PARAMS = {
+  client_id: 'ZYml3VDAwur3Y75MLvYy5rXO5dUrUIR6UlKOMdGh',
+  redirect_uri: `${BASE_URL}/v2/auth/c/redirect/`,
+  scope: 'user:email',
+  response_type: 'code',
+}
+
+export function getCustomAuthUrl(): string {
+  const params = {
+    ...CUSTOM_OAUTH_PARAMS,
+    state: 'service,' + getService(),
+  }
+  return 'https://authentik.mcswain.dev/login/oauth/authorize?' + stringify(params)
 }

@@ -1,4 +1,4 @@
-import { getGoogleAuthUrl, getAppleAuthUrl, getGitHubAuthUrl } from '~/api/auth'
+import { getGoogleAuthUrl, getGitHubAuthUrl, getCustomAuthUrl, GITHUB_OAUTH_ENABLED, GOOGLE_OAUTH_ENABLED, CUSTOM_OAUTH_ENABLED, CUSTOM_OAUTH_NAME } from '~/api/auth'
 import { setAccessToken } from '~/api/auth/client'
 
 import Button from '~/components/material/Button'
@@ -25,7 +25,7 @@ export default function Login() {
         </div>
 
         <div class="flex flex-col items-stretch gap-4 self-stretch">
-          <Button
+          { GOOGLE_OAUTH_ENABLED && <Button
             class="h-16 gap-4"
             href={getGoogleAuthUrl()}
             leading={
@@ -39,21 +39,8 @@ export default function Login() {
           >
             Sign in with Google
           </Button>
-          <Button
-            class="h-16 gap-4"
-            href={getAppleAuthUrl()}
-            leading={
-              <img
-                src="/images/logo-apple.svg"
-                alt=""
-                width={32}
-                height={32}
-              />
-            }
-          >
-            Sign in with Apple&nbsp&nbsp
-          </Button>
-          <Button
+          }
+          { GITHUB_OAUTH_ENABLED && <Button
             class="h-16 gap-4"
             href={getGitHubAuthUrl()}
             leading={
@@ -67,6 +54,14 @@ export default function Login() {
           >
             Sign in with GitHub
           </Button>
+          }
+          { CUSTOM_OAUTH_ENABLED && <Button
+            class="h-16 gap-4"
+            href={getCustomAuthUrl()}
+          >
+            Sign in with {CUSTOM_OAUTH_NAME}
+          </Button>
+          }
         </div>
 
         <div class="flex justify-between gap-4">
