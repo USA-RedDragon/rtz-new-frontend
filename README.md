@@ -2,7 +2,16 @@
 
 ![RTZ logo](./hero.png)
 
-This is a rewrite of [comma connect](https://github.com/commaai/connect), the web (and mobile) experience for [openpilot](https://github.com/commaai/openpilot).
+This is the new frontend to the RTZ (pronounced Routes) project. It is a fork of the [new comma connect frontend](https://github.com/commaai/new-connect) with some changes to update dependencies and enable its usage in RTZ.
+
+> [!WARNING]
+> This is not the production frontend, you probably want to use the [RTZ Frontend](https://github.com/USA-RedDragon/rtz-frontend).
+
+## Changes from upstream
+
+- Installed Renovate to keep dependencies up to date
+- Public Mapbox style. The styles is public at Mapbox [dark](https://api.mapbox.com/styles/v1/usa-reddragon/clyxcc7mc00st01nxh4xp4oy7.html?title=copy&access_token=pk.eyJ1IjoidXNhLXJlZGRyYWdvbiIsImEiOiJjbHdxc3AzdXEwNWJrMmpweGthNm92YXByIn0.sMNsr0rwN7bYyVn499Z7cw&zoomwheel=true&fresh=true#16.94/32.571786/-117.089917) [light](https://api.mapbox.com/styles/v1/usa-reddragon/clyxccwdz00tx01p90qa01yni.html?title=copy&access_token=pk.eyJ1IjoidXNhLXJlZGRyYWdvbiIsImEiOiJjbHdxc3AzdXEwNWJrMmpweGthNm92YXByIn0.sMNsr0rwN7bYyVn499Z7cw&zoomwheel=true&fresh=true#15.24/32.705693/-117.209988)
+- Updated all dependencies to latest versions
 
 ## Development
 
@@ -25,8 +34,6 @@ bun dev
 
 ## Contributing
 
-Join the `#dev-connect-web` channel on our [Discord](https://discord.comma.ai).
-
 connect has a demo mode, so no special comma device is needed to develop connect.
 
 A few constraints to keep connect light and the dev environment fun:
@@ -39,20 +46,3 @@ References:
 
 - [API docs](https://api.comma.ai)
 - [openpilot docs](https://docs.comma.ai)
-- [Discord](https://discord.comma.ai)
-- [Bounties](https://comma.ai/bounties)
-
-## Roadmap
-
-The first goal is to replace current connect and get this shipped to <https://connect.comma.ai>.
-
-[This milestone](https://github.com/commaai/new-connect/milestone/1) tracks that progress. Most of the issues there are [paid bounties](https://comma.ai/bounties).
-
-Once we've shipped v1, next up will be:
-
-- [Sentry mode](https://www.youtube.com/watch?v=laO0RzsDzfU)
-- SSH console for openpilot developers
-- Replace snapshot with a live stream
-- openpilot clips, like this [community tool](https://github.com/nelsonjchen/op-replay-clipper)
-- Manage the settings on your comma 3X
-- Car mangement: lock doors, EV charge status, etc.
