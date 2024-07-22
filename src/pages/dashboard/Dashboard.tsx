@@ -47,7 +47,7 @@ const DashboardDrawer = (props: {
         component="h1"
         leading={<IconButton onClick={props.onClose}>arrow_back</IconButton>}
       >
-        comma connect
+        RTZ
       </TopAppBar>
       <h2 class="mx-4 mb-2 text-label-sm">
         Devices

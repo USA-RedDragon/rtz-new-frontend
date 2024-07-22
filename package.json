@@ -1,12 +1,11 @@
 {
-  "name": "connect-beta",
+  "name": "new-rtz",
   "version": "1.0.0",
-  "homepage": "https://connect-beta.comma.ai",
   "license": "MIT",
   "author": "comma.ai",
   "repository": {
     "type": "git",
-    "url": "https://github.com/commaai/connect-beta.git"
+    "url": "https://github.com/USA-RedDragon/rtz-new-frontend.git"
   },
   "scripts": {
     "build": "vite build",
@@ -18,7 +17,7 @@
     "pre-commit": "bun lint",
     "test": "vitest run"
   },
-  "packageManager": "bun@1.1.18",
+  "packageManager": "bun@1.1.20",
   "type": "module",
   "//devDependencies": {
     "@solidjs/testing-library": "test solid components (only used for App.jsx component)",

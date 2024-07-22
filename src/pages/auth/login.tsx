@@ -13,14 +13,14 @@ export default function Login() {
     <div class="flex min-h-screen flex-col items-center justify-center bg-background p-6">
       <div class="flex max-w-sm flex-col items-center gap-8">
         <img
-          src="/images/logo-connect-light.svg"
-          alt="comma connect"
+          src="/images/logo-rtz-light.svg"
+          alt="RTZ"
           width={96}
           height={96}
         />
 
         <div class="flex flex-col items-center gap-2">
-          <h1 class="text-display-sm font-extrabold md:mt-4">comma connect</h1>
+          <h1 class="text-display-sm font-extrabold md:mt-4">RTZ</h1>
           <p class="text-body-lg">Manage your openpilot experience.</p>
         </div>
 
@@ -76,7 +76,7 @@ export default function Login() {
           </p>
 
           <img
-            src="/images/icon-comma-three-light.svg"
+            src="/images/icon-rtz-comma-three-light.svg"
             alt=""
             width={32}
             height={32}
