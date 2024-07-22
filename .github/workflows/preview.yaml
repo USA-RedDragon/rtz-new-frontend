@@ -55,11 +55,11 @@ jobs:
 
       - name: Checkout ci-artifacts
         uses: actions/checkout@v4
-        with: 
+        with:
           repository: commaai/ci-artifacts
           ssh-key: ${{ secrets.CI_ARTIFACTS_DEPLOY_KEY }}
           path: ${{ github.workspace }}/ci-artifacts
-          ref: master
+          ref: main
 
       - name: take screenshots
         run: |
