@@ -1,0 +1,50 @@
+name: test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2.0.1
+        with:
+          bun-version-file: .bun-version
+
+      - run: bun install --frozen-lockfile
+      - run: bun run build
+
+      - name: Upload built project
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./dist
+          overwrite: true
+          retention-days: 1
+          name: build-artifacts-${{ github.run_id }}
+
+  test:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2.0.1
+        with:
+          bun-version-file: .bun-version
+
+      - run: bun install --frozen-lockfile
+      - run: timeout 12s bun pre-commit
+      - run: bun run test
+      - run: ./check-lines.sh
+      - name: Bundle size breakdown
+        run: |
+          bun run build --sourcemap true
+          node src/ci/dependency_report.cjs dist/ | column -t -s ":"
+      - run: ./check-bundle-size.sh
