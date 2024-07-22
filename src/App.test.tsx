@@ -9,5 +9,5 @@ beforeAll(() => {
 
 test('Show login page', async () => {
   render(() => <App />)
-  expect(await screen.findByText('Sign in with Google')).not.toBeUndefined()
+  expect(await screen.findByText('Try the demo')).not.toBeUndefined()
 })
