@@ -1,6 +1,6 @@
 # RTZ New Frontend
 
-![RTZ logo](./public/images/hero.png)
+![RTZ logo](./hero.png)
 
 This is a rewrite of [comma connect](https://github.com/commaai/connect), the web (and mobile) experience for [openpilot](https://github.com/commaai/openpilot).
 
