@@ -55,7 +55,7 @@
     "eslint": "^9.8.0",
     "eslint-plugin-solid": "^0.14.1",
     "eslint-plugin-tailwindcss": "^3.17.4",
-    "globals": "^15.8.0",
+    "globals": "^15.9.0",
     "husky": "^9.1.4",
     "jsdom": "^24.1.1",
     "playwright": "^1.45.3",
