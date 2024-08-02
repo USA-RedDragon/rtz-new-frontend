@@ -51,7 +51,7 @@
     "@types/mapbox__polyline": "^1.0.5",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
-    "autoprefixer": "^10.4.19",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9.8.0",
     "eslint-plugin-solid": "^0.14.1",
     "eslint-plugin-tailwindcss": "^3.17.4",
